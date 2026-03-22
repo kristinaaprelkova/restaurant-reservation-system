@@ -1,0 +1,90 @@
+.reservation-form {
+    background: #f7f7f7;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 240px 1fr 24px;
+    align-items: center;
+    padding: 28px 32px;
+    border-bottom: 1px solid #ddd;
+    column-gap: 24px;
+}
+
+.field-row label,
+.field-block-label {
+    font-size: 18px;
+    color: #7a8383;
+    font-weight: 500;
+}
+
+.field-row select,
+.field-row input {
+    font-size: 18px;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: #111;
+    font-weight: 600;
+}
+
+.field-row .value {
+    font-size: 18px;
+    color: #111;
+    font-weight: 600;
+}
+
+.chevron {
+    font-size: 18px;
+    color: #111;
+    text-align: right;
+}
+
+.field-block {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    padding: 28px 32px 20px;
+    column-gap: 24px;
+}
+
+.time-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.field-block h4 {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #111;
+}
+
+.time-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.time-grid button {
+    min-width: 68px;
+    height: 52px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 8px;
+    background: #e9e9e9;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.time-grid button.selected {
+    background: #222;
+    color: white;
+}
