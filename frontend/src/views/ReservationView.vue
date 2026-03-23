@@ -1,13 +1,13 @@
 <template>
-  <div class="reservation-page">
-    <div class="reservation-layout">
-      <div class="left-panel">
-        <ReservationForm />
-      </div>
 
-      <div class="right-panel">
-        <TableMap />
-      </div>
+
+  <div class="container">
+    <div class="left">
+      <ReservationForm />
+    </div>
+
+    <div class="right">
+      <TableMap />
     </div>
   </div>
 </template>
@@ -24,4 +24,21 @@ export default {
 }
 </script>
 
-<style scoped src="../assets/styles/reservation-view.css"></style>
+<style scoped>
+.container {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.left {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.right {
+  width: 50%;
+  box-sizing: border-box;
+}
+</style>

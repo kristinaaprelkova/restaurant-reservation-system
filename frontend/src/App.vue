@@ -1,13 +1,13 @@
 <template>
-  <ReservationForm />
+  <ReservationView />
 </template>
 
 <script>
-import ReservationForm from './components/ReservationForm.vue'
+import ReservationView from './views/ReservationView.vue'
 
 export default {
   components: {
-    ReservationForm
+    ReservationView
   }
 }
 </script>
