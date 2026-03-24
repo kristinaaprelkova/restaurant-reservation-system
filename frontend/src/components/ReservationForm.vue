@@ -23,6 +23,7 @@
           <button
               v-for="time in lunchTimes"
               :key="time"
+              type="button"
               :class="{ selected: selectedTime === time }"
               @click="selectTime(time)"
           >
@@ -35,6 +36,7 @@
           <button
               v-for="time in dinnerTimes"
               :key="time"
+              type="button"
               :class="{ selected: selectedTime === time }"
               @click="selectTime(time)"
           >
@@ -42,6 +44,34 @@
           </button>
         </div>
       </div>
+    </div>
+
+    <div class="field-row">
+      <label>Nimi</label>
+      <input
+          type="text"
+          v-model="customerName"
+          placeholder="Sisesta nimi"
+      />
+    </div>
+
+    <div class="field-row">
+      <label>Email</label>
+      <input
+          type="email"
+          v-model="customerEmail"
+          placeholder="Sisesta email"
+      />
+    </div>
+
+    <div class="submit-row">
+      <button
+          class="reserve-button"
+          type="button"
+          @click="submitReservation"
+      >
+        Reserve
+      </button>
     </div>
   </div>
 </template>
@@ -51,8 +81,10 @@ export default {
   name: 'ReservationForm',
   data() {
     return {
+      customerName: '',
+      customerEmail: '',
       guestCount: 2,
-      date: '2026-03-22',
+      date: '',
       selectedTime: '',
       lunchTimes: [
         '11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00',
@@ -64,9 +96,53 @@ export default {
       ]
     }
   },
+  mounted() {
+    const today = new Date()
+    this.date = today.toISOString().split('T')[0]
+  },
   methods: {
     selectTime(time) {
       this.selectedTime = time
+    },
+
+    async submitReservation() {
+      if (!this.customerName || !this.customerEmail || !this.date || !this.selectedTime) {
+        alert('Please fill in all fields and select a time.')
+        return
+      }
+
+      try {
+        const response = await fetch('http://localhost:8080/api/reservations', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            customerName: this.customerName,
+            customerEmail: this.customerEmail,
+            reservationDate: this.date,
+            reservationTime: this.selectedTime + ':00',
+            guestCount: this.guestCount
+          })
+        })
+
+        const responseText = await response.text()
+
+        if (!response.ok) {
+          throw new Error(responseText || 'Failed to save reservation')
+        }
+
+        console.log('Saved reservation:', responseText)
+        alert('Reservation saved successfully!')
+
+        this.customerName = ''
+        this.customerEmail = ''
+        this.selectedTime = ''
+        this.guestCount = 2
+      } catch (error) {
+        console.error('Reservation error:', error)
+        alert('Error while saving reservation: ' + error.message)
+      }
     }
   }
 }
