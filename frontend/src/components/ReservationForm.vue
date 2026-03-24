@@ -14,6 +14,17 @@
       <span class="chevron">⌄</span>
     </div>
 
+    <div class="field-row">
+      <label>Tsoon</label>
+      <select v-model="zone">
+        <option value="">Vali tsoon</option>
+        <option value="terrass">Terrass</option>
+        <option value="sisesaal">Sisesaal</option>
+        <option value="privaatruum">Privaatruum</option>
+      </select>
+      <span class="chevron">⌄</span>
+    </div>
+
     <div class="field-block">
       <div class="field-block-label">Kellaaeg</div>
 
@@ -85,6 +96,7 @@ export default {
       customerEmail: '',
       guestCount: 2,
       date: '',
+      zone: '',
       selectedTime: '',
       lunchTimes: [
         '11:30', '11:45', '12:00', '12:15', '12:30', '12:45', '13:00',
@@ -106,7 +118,7 @@ export default {
     },
 
     async submitReservation() {
-      if (!this.customerName || !this.customerEmail || !this.date || !this.selectedTime) {
+      if (!this.customerName || !this.customerEmail || !this.date || !this.zone || !this.selectedTime) {
         alert('Please fill in all fields and select a time.')
         return
       }
@@ -122,7 +134,8 @@ export default {
             customerEmail: this.customerEmail,
             reservationDate: this.date,
             reservationTime: this.selectedTime + ':00',
-            guestCount: this.guestCount
+            guestCount: this.guestCount,
+            zone: this.zone
           })
         })
 
@@ -139,6 +152,7 @@ export default {
         this.customerEmail = ''
         this.selectedTime = ''
         this.guestCount = 2
+        this.zone = ''
       } catch (error) {
         console.error('Reservation error:', error)
         alert('Error while saving reservation: ' + error.message)
