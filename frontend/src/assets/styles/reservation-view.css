@@ -1,0 +1,43 @@
+.reservation-page {
+    min-height: 100vh;
+    background: #f3f3f1;
+    padding: 24px 16px;
+    box-sizing: border-box;
+}
+
+.reservation-layout {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 36px;
+}
+
+.left-panel {
+    flex: 0 0 48%;
+    max-width: 48%;
+}
+
+.right-panel {
+    flex: 0 0 52%;
+    max-width: 52%;
+}
+
+/* чтобы карточка слева не растягивалась странно */
+.left-panel :deep(.reservation-form) {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* адаптивность */
+@media (max-width: 1100px) {
+    .reservation-layout {
+        flex-direction: column;
+    }
+
+    .left-panel,
+    .right-panel {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}

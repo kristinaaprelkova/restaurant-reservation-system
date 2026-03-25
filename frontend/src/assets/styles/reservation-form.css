@@ -1,0 +1,126 @@
+.reservation-form {
+    background: #f7f7f7;
+    border-radius: 16px;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+/* ===== Общие строки ===== */
+.field-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 28px;
+    border-bottom: 1px solid #e0e0e0;
+    min-height: 52px;
+    box-sizing: border-box;
+}
+
+.field-row label,
+.field-block-label {
+    font-size: 15px;
+    color: #6f7777;
+    font-weight: 600;
+    min-width: 130px;
+}
+
+/* ===== Inputs и Select ===== */
+.field-row select,
+.field-row input {
+    font-size: 15px;
+    padding: 6px 8px;
+    border: none;
+    background: transparent;
+    outline: none;
+    text-align: left;
+    flex: 1;
+    max-width: 260px;
+    color: #222;
+}
+
+.field-row input::placeholder {
+    color: #aaa;
+}
+
+.field-row div {
+    flex: 1;
+    max-width: 260px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+}
+
+/* ===== Стрелка ===== */
+.chevron {
+    font-size: 16px;
+    color: #999;
+    margin-left: 10px;
+}
+
+/* ===== Блок времени ===== */
+.field-block {
+    padding: 14px 28px 18px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.time-content {
+    margin-top: 8px;
+    margin-left: 130px;
+}
+
+.field-block h4 {
+    margin: 10px 0 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #222;
+}
+
+/* ===== Кнопки времени ===== */
+.time-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.time-grid button {
+    min-width: 60px;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    background: #e9e9e9;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.time-grid button:hover {
+    background: #dcdcdc;
+}
+
+.time-grid button.selected {
+    background: #222;
+    color: white;
+}
+
+/* ===== Кнопка ===== */
+.submit-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 28px 20px;
+}
+
+.reserve-button {
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.reserve-button:hover {
+    opacity: 0.9;
+}

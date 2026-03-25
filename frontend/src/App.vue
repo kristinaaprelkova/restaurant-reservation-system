@@ -1,7 +1,13 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <HelloWorld />
+  <ReservationView />
 </template>
+
+<script>
+import ReservationView from './views/ReservationView.vue'
+
+export default {
+  components: {
+    ReservationView
+  }
+}
+</script>

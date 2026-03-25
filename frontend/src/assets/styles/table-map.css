@@ -1,0 +1,49 @@
+.map-container {
+    position: relative;
+    width: 100%;
+    background: #f7f7f7;
+    border-radius: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.map-image {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+.debug-info {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #555;
+}
+
+.table-dot {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.table-dot:hover {
+    transform: scale(1.08);
+}
+
+.available {
+    background: #2e9f44;
+}
+
+.selected {
+    background: #111;
+    box-shadow: 0 0 0 3px white, 0 0 0 5px #111;
+}
