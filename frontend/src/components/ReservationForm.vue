@@ -5,13 +5,11 @@
       <select v-model="localGuestCount">
         <option v-for="n in 10" :key="n" :value="n">{{ n }} külalast</option>
       </select>
-      <span class="chevron">⌄</span>
     </div>
 
     <div class="field-row">
       <label>Kuupäev</label>
       <input type="date" v-model="localDate" />
-      <span class="chevron">⌄</span>
     </div>
 
     <div class="field-row">
@@ -22,7 +20,6 @@
         <option value="sisesaal">Sisesaal</option>
         <option value="privaatruum">Privaatruum</option>
       </select>
-      <span class="chevron">⌄</span>
     </div>
 
     <div class="field-block">
@@ -88,7 +85,7 @@
           type="button"
           @click="submitReservation"
       >
-        Reserve
+        Reserveeri
       </button>
     </div>
   </div>

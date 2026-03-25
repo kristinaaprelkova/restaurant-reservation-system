@@ -31,21 +31,21 @@ export default {
     return {
       tables: [],
       layout: [
-        { tableNumber: 1, top: 70, left: 85 },
-        { tableNumber: 2, top: 240, left: 90 },
-        { tableNumber: 3, top: 370, left: 60 },
-        { tableNumber: 4, top: 185, left: 192 },
-        { tableNumber: 5, top: 265, left: 192 },
-        { tableNumber: 6, top: 350, left: 192 },
-        { tableNumber: 7, top: 115, left: 400 },
-        { tableNumber: 8, top: 115, left: 540 },
-        { tableNumber: 9, top: 115, left: 718 },
-        { tableNumber: 10, top: 233, left: 293 },
-        { tableNumber: 11, top: 255, left: 425 },
+        { tableNumber: 1, top: 80, left: 95 },
+        { tableNumber: 2, top: 245, left: 100 },
+        { tableNumber: 3, top: 375, left: 70 },
+        { tableNumber: 4, top: 190, left: 196 },
+        { tableNumber: 5, top: 270, left: 196 },
+        { tableNumber: 6, top: 350, left: 196 },
+        { tableNumber: 7, top: 122, left: 398 },
+        { tableNumber: 8, top: 120, left: 530 },
+        { tableNumber: 9, top: 118, left: 705 },
+        { tableNumber: 10, top: 234, left: 294 },
+        { tableNumber: 11, top: 260, left: 425 },
         { tableNumber: 12, top: 320, left: 290 },
         { tableNumber: 13, top: 375, left: 385 },
-        { tableNumber: 14, top: 375, left: 487 },
-        { tableNumber: 15, top: 330, left: 695 }
+        { tableNumber: 14, top: 375, left: 482 },
+        { tableNumber: 15, top: 330, left: 680 }
       ]
     }
   },
