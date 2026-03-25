@@ -8,7 +8,7 @@
         type="button"
         class="table-dot"
         :class="getTableClass(table)"
-        :style="{ top: table.top + 'px', left: table.left + 'px' }"
+        :style="{ top: table.top + '%', left: table.left + '%' }"
         :title="`Table ${table.tableNumber}, seats: ${table.seats}, zone: ${table.zone}`"
         @click="selectTable(table)"
     >
@@ -31,21 +31,21 @@ export default {
     return {
       tables: [],
       layout: [
-        { tableNumber: 1, top: 80, left: 95 },
-        { tableNumber: 2, top: 245, left: 100 },
-        { tableNumber: 3, top: 375, left: 70 },
-        { tableNumber: 4, top: 190, left: 196 },
-        { tableNumber: 5, top: 270, left: 196 },
-        { tableNumber: 6, top: 350, left: 196 },
-        { tableNumber: 7, top: 122, left: 398 },
-        { tableNumber: 8, top: 120, left: 530 },
-        { tableNumber: 9, top: 118, left: 705 },
-        { tableNumber: 10, top: 234, left: 294 },
-        { tableNumber: 11, top: 260, left: 425 },
-        { tableNumber: 12, top: 320, left: 290 },
-        { tableNumber: 13, top: 375, left: 385 },
-        { tableNumber: 14, top: 375, left: 482 },
-        { tableNumber: 15, top: 330, left: 680 }
+        { tableNumber: 1, top: 18, left: 14 },
+        { tableNumber: 2, top: 46, left: 14.5 },
+        { tableNumber: 3, top: 68.5, left: 11 },
+        { tableNumber: 4, top: 36, left: 27 },
+        { tableNumber: 5, top: 50, left: 27 },
+        { tableNumber: 6, top: 65, left: 27 },
+        { tableNumber: 7, top: 25, left: 50.0 },
+        { tableNumber: 8, top: 25, left: 66 },
+        { tableNumber: 9, top: 25, left: 86 },
+        { tableNumber: 10, top: 45, left: 38 },
+        { tableNumber: 11, top: 48.5, left: 53},
+        { tableNumber: 12, top: 61.0, left: 38.0 },
+        { tableNumber: 13, top: 70, left: 49 },
+        { tableNumber: 14, top: 70, left: 60 },
+        { tableNumber: 15, top: 60, left: 83.5 }
       ]
     }
   },
