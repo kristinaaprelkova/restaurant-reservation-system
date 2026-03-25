@@ -6,6 +6,7 @@
           :date="date"
           :zone="zone"
           :selected-time="selectedTime"
+          :selected-table="selectedTable"
           @update-guest-count="guestCount = $event"
           @update-date="date = $event"
           @update-zone="zone = $event"
@@ -19,6 +20,8 @@
           :date="date"
           :zone="zone"
           :selected-time="selectedTime"
+          :selected-table="selectedTable"
+          @select-table="selectedTable = $event"
       />
     </div>
   </div>
@@ -38,7 +41,8 @@ export default {
       guestCount: 2,
       date: '',
       zone: '',
-      selectedTime: ''
+      selectedTime: '',
+      selectedTable: null
     }
   },
   mounted() {
@@ -56,11 +60,7 @@ export default {
   box-sizing: border-box;
 }
 
-.left {
-  width: 50%;
-  box-sizing: border-box;
-}
-
+.left,
 .right {
   width: 50%;
   box-sizing: border-box;

@@ -75,6 +75,13 @@
       />
     </div>
 
+    <div class="field-row" v-if="selectedTable">
+      <label>Valitud laud</label>
+      <div>
+        Laud {{ selectedTable.tableNumber }} · {{ selectedTable.seats }} kohta · {{ selectedTable.zone }}
+      </div>
+    </div>
+
     <div class="submit-row">
       <button
           class="reserve-button"
@@ -94,7 +101,8 @@ export default {
     guestCount: Number,
     date: String,
     zone: String,
-    selectedTime: String
+    selectedTime: String,
+    selectedTable: Object
   },
   data() {
     return {
@@ -152,6 +160,11 @@ export default {
         return
       }
 
+      if (!this.selectedTable) {
+        alert('Please select a table on the map.')
+        return
+      }
+
       try {
         const response = await fetch('http://localhost:8080/api/reservations', {
           method: 'POST',
@@ -164,7 +177,10 @@ export default {
             reservationDate: this.localDate,
             reservationTime: this.localSelectedTime + ':00',
             guestCount: this.localGuestCount,
-            zone: this.localZone
+            zone: this.localZone,
+            table: {
+              id: this.selectedTable.id
+            }
           })
         })
 

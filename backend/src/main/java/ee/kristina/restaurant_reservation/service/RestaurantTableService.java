@@ -31,18 +31,23 @@ public class RestaurantTableService {
 
         List<RestaurantTable> tables = tableRepository.findAll();
 
+        // 1. Фильтр по количеству гостей по заданным правилам
         if (guestCount != null) {
+            Set<Integer> recommendedSeats = getRecommendedSeats(guestCount);
+
             tables = tables.stream()
-                    .filter(table -> table.getSeats() != null && table.getSeats() >= guestCount)
+                    .filter(table -> table.getSeats() != null && recommendedSeats.contains(table.getSeats()))
                     .collect(Collectors.toList());
         }
 
+        // 2. Фильтр по зоне
         if (zone != null && !zone.isBlank()) {
             tables = tables.stream()
                     .filter(table -> table.getZone() != null && table.getZone().equalsIgnoreCase(zone))
                     .collect(Collectors.toList());
         }
 
+        // 3. Фильтр по дате и времени: исключаем занятые столы
         if (date != null && !date.isBlank() && time != null && !time.isBlank()) {
             LocalDate reservationDate = LocalDate.parse(date);
             LocalTime reservationTime = LocalTime.parse(time);
@@ -61,5 +66,17 @@ public class RestaurantTableService {
         }
 
         return tables;
+    }
+
+    private Set<Integer> getRecommendedSeats(Integer guestCount) {
+        if (guestCount <= 3) {
+            return Set.of(2, 4);
+        } else if (guestCount <= 5) {
+            return Set.of(4, 6);
+        } else if (guestCount <= 7) {
+            return Set.of(6, 8);
+        } else {
+            return Set.of(8, 10);
+        }
     }
 }
