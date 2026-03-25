@@ -107,3 +107,27 @@
     background: #efefef;
     font-size: 16px;
 }
+
+.map-container {
+    position: relative;
+}
+
+.map-image {
+    width: 100%;
+}
+
+.table-dot {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.available {
+    background: green;
+}

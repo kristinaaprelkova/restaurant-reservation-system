@@ -1,13 +1,25 @@
 <template>
-
-
   <div class="container">
     <div class="left">
-      <ReservationForm />
+      <ReservationForm
+          :guest-count="guestCount"
+          :date="date"
+          :zone="zone"
+          :selected-time="selectedTime"
+          @update-guest-count="guestCount = $event"
+          @update-date="date = $event"
+          @update-zone="zone = $event"
+          @update-selected-time="selectedTime = $event"
+      />
     </div>
 
     <div class="right">
-      <TableMap />
+      <TableMap
+          :guest-count="guestCount"
+          :date="date"
+          :zone="zone"
+          :selected-time="selectedTime"
+      />
     </div>
   </div>
 </template>
@@ -20,6 +32,18 @@ export default {
   components: {
     ReservationForm,
     TableMap
+  },
+  data() {
+    return {
+      guestCount: 2,
+      date: '',
+      zone: '',
+      selectedTime: ''
+    }
+  },
+  mounted() {
+    const today = new Date()
+    this.date = today.toISOString().split('T')[0]
   }
 }
 </script>
