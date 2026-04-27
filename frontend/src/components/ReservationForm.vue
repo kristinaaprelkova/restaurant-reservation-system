@@ -3,7 +3,7 @@
     <div class="field-row">
       <label>Seltskonna suurus</label>
       <select v-model="localGuestCount">
-        <option v-for="n in 10" :key="n" :value="n">{{ n }} külalast</option>
+        <option v-for="n in 10" :key="n" :value="n">{{ n }} külalist</option>
       </select>
     </div>
 
