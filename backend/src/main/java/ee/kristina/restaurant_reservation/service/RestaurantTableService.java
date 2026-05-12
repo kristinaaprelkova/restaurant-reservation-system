@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
 @Service
 public class RestaurantTableService {
 
+    private static final int RESERVATION_DURATION_MINUTES = 150; // 2.5 hours
+
     private final RestaurantTableRepository tableRepository;
     private final ReservationRepository reservationRepository;
 
@@ -31,7 +33,6 @@ public class RestaurantTableService {
 
         List<RestaurantTable> tables = tableRepository.findAll();
 
-        // 1. Фильтр по количеству гостей по заданным правилам
         if (guestCount != null) {
             Set<Integer> recommendedSeats = getRecommendedSeats(guestCount);
 
@@ -40,23 +41,25 @@ public class RestaurantTableService {
                     .collect(Collectors.toList());
         }
 
-        // 2. Фильтр по зоне
         if (zone != null && !zone.isBlank()) {
             tables = tables.stream()
                     .filter(table -> table.getZone() != null && table.getZone().equalsIgnoreCase(zone))
                     .collect(Collectors.toList());
         }
 
-        // 3. Фильтр по дате и времени: исключаем занятые столы
         if (date != null && !date.isBlank() && time != null && !time.isBlank()) {
             LocalDate reservationDate = LocalDate.parse(date);
-            LocalTime reservationTime = LocalTime.parse(time);
+            LocalTime requestedStartTime = LocalTime.parse(time);
 
             List<Reservation> reservations =
-                    reservationRepository.findByReservationDateAndReservationTime(reservationDate, reservationTime);
+                    reservationRepository.findByReservationDate(reservationDate);
 
             Set<Long> occupiedTableIds = reservations.stream()
                     .filter(reservation -> reservation.getTable() != null)
+                    .filter(reservation -> isOverlapping(
+                            reservation.getReservationTime(),
+                            requestedStartTime
+                    ))
                     .map(reservation -> reservation.getTable().getId())
                     .collect(Collectors.toSet());
 
@@ -78,5 +81,13 @@ public class RestaurantTableService {
         } else {
             return Set.of(8, 10);
         }
+    }
+
+    private boolean isOverlapping(LocalTime existingStartTime, LocalTime requestedStartTime) {
+        LocalTime existingEndTime = existingStartTime.plusMinutes(RESERVATION_DURATION_MINUTES);
+        LocalTime requestedEndTime = requestedStartTime.plusMinutes(RESERVATION_DURATION_MINUTES);
+
+        return requestedStartTime.isBefore(existingEndTime)
+                && requestedEndTime.isAfter(existingStartTime);
     }
 }
