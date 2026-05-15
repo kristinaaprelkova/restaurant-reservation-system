@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: restaurant_db
+    environment:
+      POSTGRES_DB: restaurant_reservation_system
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: student123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: restaurant_backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/restaurant_reservation_system
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: student123
+
+volumes:
+  pgdata:
