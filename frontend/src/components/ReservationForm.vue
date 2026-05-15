@@ -163,7 +163,7 @@ export default {
       }
 
       try {
-        const response = await fetch('http://localhost:8080/api/reservations', {
+        const response = await fetch('https://restaurant-reservation-system-fsv6.onrender.com/api/reservations', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

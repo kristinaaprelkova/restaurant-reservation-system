@@ -77,7 +77,9 @@ export default {
         if (this.zone) params.append('zone', this.zone)
         if (this.selectedTime) params.append('time', this.selectedTime + ':00')
 
-        const response = await fetch(`http://localhost:8080/api/tables/filter?${params.toString()}`)
+        const response = await fetch(
+            `https://restaurant-reservation-system-fsv6.onrender.com/api/tables/filter?${params.toString()}`
+        )
         if (!response.ok) throw new Error('Failed to load tables')
 
         this.tables = await response.json()
