@@ -13,23 +13,23 @@ public class DataInitializer {
     CommandLineRunner initTables(RestaurantTableRepository tableRepository) {
         return args -> {
             if (tableRepository.count() == 0) {
-                tableRepository.save(new RestaurantTable(1, 2, "terrass"));
-                tableRepository.save(new RestaurantTable(2, 4, "terrass"));
-                tableRepository.save(new RestaurantTable(3, 2, "terrass"));
+                tableRepository.save(new RestaurantTable(1, 4, "terrass"));
+                tableRepository.save(new RestaurantTable(2, 2, "terrass"));
+                tableRepository.save(new RestaurantTable(3, 6, "terrass"));
                 tableRepository.save(new RestaurantTable(4, 4, "terrass"));
-                tableRepository.save(new RestaurantTable(5, 6, "terrass"));
-                tableRepository.save(new RestaurantTable(6, 8, "terrass"));
+                tableRepository.save(new RestaurantTable(5, 4, "terrass"));
+                tableRepository.save(new RestaurantTable(6, 4, "terrass"));
 
-                tableRepository.save(new RestaurantTable(7, 2, "sisesaal"));
-                tableRepository.save(new RestaurantTable(8, 4, "sisesaal"));
-                tableRepository.save(new RestaurantTable(9, 4, "sisesaal"));
-                tableRepository.save(new RestaurantTable(10, 6, "sisesaal"));
-                tableRepository.save(new RestaurantTable(11, 8, "sisesaal"));
-                tableRepository.save(new RestaurantTable(12, 10, "sisesaal"));
+                tableRepository.save(new RestaurantTable(7, 7, "sisesaal"));
+                tableRepository.save(new RestaurantTable(8, 8, "sisesaal"));
+                tableRepository.save(new RestaurantTable(9, 6, "sisesaal"));
+                tableRepository.save(new RestaurantTable(10, 2, "sisesaal"));
+                tableRepository.save(new RestaurantTable(11, 6, "sisesaal"));
+                tableRepository.save(new RestaurantTable(12, 4, "sisesaal"));
 
-                tableRepository.save(new RestaurantTable(13, 2, "privaatruum"));
+                tableRepository.save(new RestaurantTable(13, 4, "privaatruum"));
                 tableRepository.save(new RestaurantTable(14, 4, "privaatruum"));
-                tableRepository.save(new RestaurantTable(15, 6, "privaatruum"));
+                tableRepository.save(new RestaurantTable(15, 10, "privaatruum"));
             }
         };
     }
