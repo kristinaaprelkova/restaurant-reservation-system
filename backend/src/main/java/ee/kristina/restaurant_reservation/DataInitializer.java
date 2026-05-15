@@ -19,15 +19,17 @@ public class DataInitializer {
                 tableRepository.save(new RestaurantTable(4, 4, "terrass"));
                 tableRepository.save(new RestaurantTable(5, 6, "terrass"));
                 tableRepository.save(new RestaurantTable(6, 8, "terrass"));
-                tableRepository.save(new RestaurantTable(7, 2, "terrass"));
-                tableRepository.save(new RestaurantTable(8, 4, "terrass"));
-                tableRepository.save(new RestaurantTable(9, 2, "privaatruum"));
-                tableRepository.save(new RestaurantTable(10, 4, "sisesaal"));
-                tableRepository.save(new RestaurantTable(11, 6, "sisesaal"));
-                tableRepository.save(new RestaurantTable(12, 8, "sisesaal"));
-                tableRepository.save(new RestaurantTable(13, 2, "sisesaal"));
-                tableRepository.save(new RestaurantTable(14, 4, "sisesaal"));
-                tableRepository.save(new RestaurantTable(15, 2, "privaatruum"));
+
+                tableRepository.save(new RestaurantTable(7, 2, "sisesaal"));
+                tableRepository.save(new RestaurantTable(8, 4, "sisesaal"));
+                tableRepository.save(new RestaurantTable(9, 4, "sisesaal"));
+                tableRepository.save(new RestaurantTable(10, 6, "sisesaal"));
+                tableRepository.save(new RestaurantTable(11, 8, "sisesaal"));
+                tableRepository.save(new RestaurantTable(12, 10, "sisesaal"));
+
+                tableRepository.save(new RestaurantTable(13, 2, "privaatruum"));
+                tableRepository.save(new RestaurantTable(14, 4, "privaatruum"));
+                tableRepository.save(new RestaurantTable(15, 6, "privaatruum"));
             }
         };
     }
